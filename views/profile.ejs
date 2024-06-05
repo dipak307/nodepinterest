@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Responsive User Profile Card using HTML and CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+  </head>
+  <body>
+
+    <div class="wrapper">
+        <div class="user-card ">
+            <div class="user-card-img">
+              <img src="https://cdn.pixabay.com/photo/2022/09/13/05/34/boy-handsome-pose-ideas-7450990_1280.jpg" alt="">
+            </div>
+            <div class="user-card-info">
+              <h2><%= user.fullname %></h2>
+              <p><span>Email:</span> <%= user.email %> </p>
+              <p><span>Location:</span> mumbai,india</p>
+              <p><span>Occupation:</span> Web Developer</p>
+              <p><span>About me:</span> i am a full stack web developer,frontend developer and backend developer </p>
+              <a href="/logout"><button>Logout</button> </a>
+
+              <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="text" name="filecaption" placeholder="some caption">
+                <input type="file" name="file" placeholder="choose-file">
+                <input type="submit" value="upload">
+              </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+      <div class="cards flex">
+        <% user.posts.forEach(function(post){ %>
+          <div class="card" style="width: 18rem;">
+            <img src="/images/uploads/<%= post.image %>" 
+            class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=post.imageText %></h5>     
+            </div>
+          </div>
+      <% }) %>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="card flex" style="width: 18rem;">
+            <img src="https://images.unsplash.com/opengraph/1x1.png?blend=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1472437774355-71ab6752b434%3Fblend%3D000000%26blend-alpha%3D10%26blend-mode%3Dnormal%26crop%3Dfaces%252Cedges%26h%3D630%26mark%3Dhttps%253A%252F%252Fimages.unsplash.com%252Fopengraph%252Fsearch-input.png%253Fh%253D84%2526txt%253Dfront%252Bend%252Bdeveloper%2526txt-align%253Dmiddle%25252Cleft%2526txt-clip%253Dellipsis%2526txt-color%253D000000%2526txt-pad%253D80%2526txt-size%253D40%2526txt-width%253D660%2526w%253D750%2526auto%253Dformat%2526fit%253Dcrop%2526q%253D60%26mark-align%3Dmiddle%252Ccenter%26mark-w%3D750%26w%3D1200%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixid%3DM3wxMjA3fDB8MXxzZWFyY2h8Nnx8ZnJvbnQlMjBlbmQlMjBkZXZlbG9wZXJ8ZW58MHx8fHwxNzA2NjI5MDI3fDA%26ixlib%3Drb-4.0.3&blend-w=1&h=630&mark=https%3A%2F%2Fimages.unsplash.com%2Fopengraph%2Flogo.png&mark-align=top%2Cleft&mark-pad=50&mark-w=64&w=1200&auto=format&fit=crop&q=60" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>     
+            </div>
+          </div>
+    </div>
+      
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
